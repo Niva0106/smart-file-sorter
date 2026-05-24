@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QListWidget, QLabel
+from PySide6.QtWidgets import (QWidget,QVBoxLayout,QPushButton,QListWidget,QLabel,QLineEdit)
 from utils.scanner import scan_downloads
 from utils.file_info import get_file_info
 from utils.category_manager import get_category
@@ -11,47 +11,72 @@ class MainWindow(QWidget):
         super().__init__()
 
         self.setWindowTitle("Smart Sorter")
-        self.resize(800, 600)
 
         self.layout = QVBoxLayout()
 
         self.title = QLabel("Smart Sorter")
         self.subtitle = QLabel("Organize your Downloads smartly")
 
+        self.search_bar = QLineEdit()
+        self.search_bar.setPlaceholderText("Search files...")
+        self.search_bar.textChanged.connect(self.filter_files)
+
         self.scan_button = QPushButton("Scan Downloads")
         self.scan_button.clicked.connect(self.load_files)
 
+        self.sort_button = QPushButton("Move Selected File")
+        self.sort_button.clicked.connect(self.move_selected_file)
+
         self.file_list = QListWidget()
 
-        self.sort_button = QPushButton("Sort Files")
-        self.sort_button.clicked.connect(self.sort_files)
+        self.all_files = []
 
         self.layout.addWidget(self.title)
         self.layout.addWidget(self.subtitle)
+        self.layout.addWidget(self.search_bar)
         self.layout.addWidget(self.scan_button)
         self.layout.addWidget(self.file_list)
         self.layout.addWidget(self.sort_button)
 
-
         self.setLayout(self.layout)
-    
+
+
     def load_files(self):
         self.file_list.clear()
 
-        files = scan_downloads()
+        self.all_files = scan_downloads()
 
-        for file in files:
+        for file in self.all_files:
             info = get_file_info(file)
             category = get_category(file)
 
             self.file_list.addItem(f"{info['name']} → {category}")
 
-    def sort_files(self):
+
+    def filter_files(self, text):
+        self.file_list.clear()
+
+        for file in self.all_files:
+            if text.lower() in file.name.lower():
+                category = get_category(file)
+                self.file_list.addItem(f"{file.name} → {category}")
+
+   
+    def move_selected_file(self):
+        selected_item = self.file_list.currentItem()
+
+        if not selected_item:
+            return
+
+        file_name = selected_item.text().split(" → ")[0]
+
         files = scan_downloads()
         destination = Path.home() / "Downloads"
 
         for file in files:
-            category = get_category(file)
-            move_file(file, category, destination)
+            if file.name == file_name:
+                category = get_category(file)
+                move_file(file, category, destination)
+                break
 
         self.load_files()
