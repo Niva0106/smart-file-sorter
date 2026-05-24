@@ -70,13 +70,11 @@ class MainWindow(QWidget):
 
         file_name = selected_item.text().split(" → ")[0]
 
-        files = scan_downloads()
-        destination = Path.home() / "Downloads"
-
-        for file in files:
+        for file in self.all_files:
             if file.name == file_name:
                 category = get_category(file)
-                move_file(file, category, destination)
+
+                move_file(file, category)
                 break
 
         self.load_files()
