@@ -28,6 +28,7 @@ class MainWindow(QWidget):
         self.sort_button.clicked.connect(self.move_selected_file)
 
         self.file_list = QListWidget()
+        self.file_list.setSelectionMode(QListWidget.MultiSelection)
 
         self.all_files = []
 
@@ -63,18 +64,20 @@ class MainWindow(QWidget):
 
    
     def move_selected_file(self):
-        selected_item = self.file_list.currentItem()
+        selected_items = self.file_list.selectedItems()
 
-        if not selected_item:
+        if not selected_items:
             return
 
-        file_name = selected_item.text().split(" → ")[0]
+        files = scan_downloads()
 
-        for file in self.all_files:
-            if file.name == file_name:
-                category = get_category(file)
+        for item in selected_items:
+            file_name = item.text().split(" → ")[0]
 
-                move_file(file, category)
-                break
+            for file in files:
+                if file.name == file_name:
+                    category = get_category(file)
+                    move_file(file, category, Path.home() / "Downloads")
+                    break
 
         self.load_files()
