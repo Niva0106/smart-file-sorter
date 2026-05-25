@@ -112,13 +112,21 @@ class MainWindow(QWidget):
 
         try:
             with open("data/settings.json", "r") as f:
-                data = json.load(f)
+                content = f.read().strip()
 
-            for name in data:
-                self.dest_dropdown.addItem(name)
+                if not content:
+                    data = {}
+                else:
+                    data = json.loads(content)
 
         except FileNotFoundError:
-            pass
+            data = {}
+
+        except json.JSONDecodeError:
+            data = {}
+
+        for name in data:
+            self.dest_dropdown.addItem(name)
 
     def move_selected_file(self):
         selected_items = self.file_list.selectedItems()
