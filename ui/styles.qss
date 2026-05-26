@@ -1,0 +1,111 @@
+QWidget {
+    background-color: #1e1e1e;
+    color: #eaeaea;
+    font-size: 14px;
+}
+
+QLabel {
+    color: #eaeaea;
+}
+
+#title {
+    font-size: 24px;
+    font-weight: bold;
+    qproperty-alignment: AlignCenter;
+}
+
+#subtitle {
+    color: #aaaaaa;
+    font-size: 13px;
+    qproperty-alignment: AlignCenter;
+}
+
+QPushButton {
+    background-color: #2d2d2d;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 8px;
+    min-height: 40px;
+}
+
+QPushButton:hover {
+    background-color: #3a3a3a;
+}
+
+QPushButton:pressed {
+    background-color: #252525;
+}
+
+#primaryButton {
+    background-color: #4a6cf7;
+    font-weight: bold;
+}
+
+#primaryButton:hover {
+    background-color: #5d7dff;
+}
+
+QLineEdit,
+QComboBox {
+    background-color: #2b2b2b;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 8px;
+    min-height: 38px;
+}
+
+QLineEdit {
+    padding-left: 10px;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QListWidget {
+    background-color: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+QListWidget::item {
+    padding: 8px;
+    border-radius: 6px;
+}
+
+QListWidget::item:selected {
+    background-color: #404040;
+}
+
+QListWidget::item:hover {
+    background-color: #333333;
+}
+
+QTabWidget::pane {
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    margin-top: 5px;
+    background-color: #252525;
+}
+
+QTabBar::tab {
+    background: #2d2d2d;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+QTabBar::tab:selected {
+    background: #404040;
+}
+
+QTabBar::tab:hover {
+    background: #3a3a3a;
+}
+
+#statusLabel {
+    color: #aaaaaa;
+    padding-top: 5px;
+}
