@@ -95,8 +95,9 @@ smart-sorter/
 │   ├── mover.py
 │   ├── category_manager.py
 │   └── file_info.py
+```
 
-# How to Run
+# How To Run
 
 ## Clone Repository
 
