@@ -97,42 +97,68 @@ smart-sorter/
 │   └── file_info.py
 ```
 
-# How To Run
+# Running From Source
 
-## Clone Repository
+This project currently runs from source code.
+
+Requirements:
+- Python installed
+- PySide6 installed
+- Git installed (optional if downloading ZIP)
+
+---
+
+# Download Project
+
+## Option 1: Clone using Git
 
 ```bash
 git clone https://github.com/Niva0106/smart-file-sorter
-cd smart-sorter
+cd smart-file-sorter
 ```
 
-## Create Virtual Environment
+## Option 2: Download ZIP
+
+- Open the GitHub repository
+- Click the green `Code` button
+- Click `Download ZIP`
+- Extract the ZIP folder
+
+---
+
+# Create Virtual Environment
 
 ```bash
 python3 -m venv venv
 ```
 
-## Activate Virtual Environment
+---
 
-### Linux/macOS
+# Activate Virtual Environment
+
+## Linux/macOS
 
 ```bash
 source venv/bin/activate
 ```
 
-### Windows
+## Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-## Install Dependencies
+---
+
+# Install Dependencies
 
 ```bash
 pip install PySide6
 ```
 
-## Run Application
+---
+
+# Run Application
 
 ```bash
 python main.py
