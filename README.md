@@ -96,6 +96,7 @@ smart-sorter/
 │   ├── category_manager.py
 │   └── file_info.py
 ```
+---
 
 # Running From Source
 
