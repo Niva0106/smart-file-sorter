@@ -141,7 +141,7 @@ or run via terminal :
 run.bat
 ```
 
-###Linux
+### Linux
 
 Give permission(first time only):
 ```bash
