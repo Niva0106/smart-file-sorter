@@ -127,44 +127,30 @@ cd smart-file-sorter
 
 ---
 
-# Create Virtual Environment
-
-```bash
-python3 -m venv venv
-```
-
----
-
-# Activate Virtual Environment
-
-## Linux/macOS
-
-```bash
-source venv/bin/activate
-```
-
-## Windows
-
-```bash
-venv\Scripts\activate
-```
-
----
-
-# Install Dependencies
-
-```bash
-pip install PySide6
-```
-
----
-
 # Run Application
 
-```bash
-python main.py
+### Windows
+
+Just double-click:
+
+```text
+run.bat
+```
+or run via terminal :
+```bat
+run.bat
 ```
 
+###Linux
+
+Give permission(first time only):
+```bash
+chmod +x run.sh
+```
+Run application:
+```bash
+./run.sh
+```
 ---
 
 # Future Ideas
