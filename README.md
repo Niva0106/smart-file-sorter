@@ -1,6 +1,6 @@
-# Smart Sorter
+# Smart File Sorter
 
-Smart Sorter is a small desktop utility made with Python and PySide6 that helps organize messy Downloads folders faster and more comfortably.
+Smart File Sorter is a small desktop utility made with Python and PySide6 that helps organize messy Downloads folders faster and more comfortably.
 
 Instead of manually opening many folders and moving files one by one using the normal file explorer, Smart Sorter focuses on quick file organization and saved destinations.
 
@@ -12,7 +12,7 @@ This project was made mainly for personal use and learning desktop application d
 
 File Explorer already allows moving and sorting files manually.
 
-Smart Sorter tries to make that process quicker by:
+Smart File Sorter tries to make that process quicker by:
 
 - Automatically sorting files by type
 - Allowing multiple files to be moved quickly
@@ -95,6 +95,10 @@ smart-sorter/
 │   ├── mover.py
 │   ├── category_manager.py
 │   └── file_info.py
+│
+├── filesorter.bat
+│
+├── filesorter.sh
 ```
 ---
 
@@ -134,22 +138,22 @@ cd smart-file-sorter
 Just double-click:
 
 ```text
-run.bat
+filesorter.bat
 ```
 or run via terminal :
 ```bat
-run.bat
+filesorter.bat
 ```
 
-### Linux
+### Linux (or MacOS)
 
 Give permission(first time only):
 ```bash
-chmod +x run.sh
+chmod +x filesorter.sh
 ```
 Run application:
 ```bash
-./run.sh
+./filesorter.sh
 ```
 ---
 
