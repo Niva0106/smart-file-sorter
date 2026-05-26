@@ -102,7 +102,7 @@ smart-sorter/
 ## Clone Repository
 
 ```bash
-git clone <your-repo-link>
+git clone <https://github.com/Niva0106/smart-file-sorter>
 cd smart-sorter
 ```
 
